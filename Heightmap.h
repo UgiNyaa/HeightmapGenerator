@@ -1,5 +1,5 @@
 #ifndef heightmaph
-#def heightmaph
+#define heightmaph
 
 class Heightmap{
 	private:
@@ -9,9 +9,14 @@ class Heightmap{
 	
 	public:
 	Heightmap(int width, int height);
+	~Heightmap();
+	
 	int getWidth();
 	int getHeight();
 	
-}
+	int getPixel(unsigned int x, unsigned int y);
+	void setPixel(unsigned int x, unsigned int y, unsigned char color);
+	
+};
 
 #endif

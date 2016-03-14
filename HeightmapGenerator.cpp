@@ -1,7 +1,7 @@
 #include "HeightmapGenerator.h"
 
 #ifndef heightmapgeneratorcpp
-#def heightmapgeneratorcpp
+#define heightmapgeneratorcpp
 
 
 
