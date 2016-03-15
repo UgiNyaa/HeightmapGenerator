@@ -1,7 +1,5 @@
 #include "Heightmap.h"
 #include <iostream>
-#include <cstdlib>
-#include <ctime>
 #include <fstream>
 
 #ifndef heightmapcpp
@@ -15,10 +13,8 @@ Heightmap::Heightmap(int width, int height){
 	
 	pixels = new unsigned char[width * height];
 	
-	srand(time(0));
-	
 	for (int i = 0; i < (width * height); i++){
-		pixels[i] = rand() % 256;
+		pixels[i] = 0;
 	}
 }
 
@@ -35,6 +31,13 @@ int Heightmap::getHeight(){
 }
 
 int Heightmap::getPixel(unsigned int x, unsigned int y){
+	
+	if (x < 0 || x >= width-1)
+		return -1;
+	
+	if (y < 0 || y >= height-1)
+		return -1;
+	
 	return (int)pixels[width * y + x];
 }
 
@@ -46,30 +49,6 @@ void Heightmap::setPixel(unsigned int x, unsigned int y, unsigned char color){
 		return;
 	
 	pixels[width * y + x] = color;
-}
-
-main()
-{
-	Heightmap heightmap(100, 100);
-	
-	cout << "Start Writing..." << endl;
-	
-	ofstream f("heightmap.pgm", ios_base::out
-	                      |ios_base::binary
-                          |ios_base::trunc
-	);
-	
-	f << "P5\n" << heightmap.getWidth() << " " 
-	<< heightmap.getHeight() << "\n" << "255\n";
-	
-	for(int i = 0; i < heightmap.getWidth(); i++){
-		for(int j = 0; j < heightmap.getWidth(); j++){
-			f << (unsigned char)heightmap.getPixel(i, j);
-		}
-	}
-	
-	f.close();
-	cout << "end" << endl;
 }
 
 #endif
