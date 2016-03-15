@@ -2,8 +2,8 @@
 #include <iostream>
 #include <fstream>
 
-#ifndef heightmapcpp
-#define heightmapcpp
+#ifndef heightmap_cpp_included
+#define heightmap_cpp_included
 
 using namespace std;
 

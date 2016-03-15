@@ -1,5 +1,5 @@
-#ifndef heightmaph
-#define heightmaph
+#ifndef heightmap_h_included
+#define heightmap_h_included
 
 class Heightmap{
 	private:
